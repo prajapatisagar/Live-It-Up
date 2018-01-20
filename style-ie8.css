@@ -1,0 +1,12 @@
+/*CSS patches for older IE versions*/
+
+#access .menu-header ul,
+div.menu ul {
+    display: inline;
+    zoom: 1;
+}
+
+#access ul ul {
+    left: 0;
+}
+
