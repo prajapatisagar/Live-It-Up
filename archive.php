@@ -7,35 +7,36 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * 
+ *
  */
 
 get_header(); ?>
 
-		<div class="container">
-			<div id="content" role="main">
+    <div class="container">
+        <div id="content" role="main">
 
-                <?php
-                    /* Queue the first post, that way we know
-                     * what date we're dealing with (if that is the case).
-                     *
-                     * We reset this later so we can run the loop
-                     * properly with a call to rewind_posts().
-                     */
-                    if ( have_posts() )
-                        the_post();
+			<?php
+			/* Queue the first post, that way we know
+            * what date we're dealing with (if that is the case).
+            *
+            * We reset this later so we can run the loop
+            * properly with a call to rewind_posts().
+            */
+			if ( have_posts() ) {
+				the_post();
+			}
 
-                    the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
 
-                    /* Run the loop for the archives page to output the posts.
-                     * If you want to overload this in a child theme then include a file
-                     * called loop-archives.php and that will be used instead.
-                     */
-                     get_template_part( 'loop', 'archive' );
-                ?>
+			/* Run the loop for the archives page to output the posts.
+			* If you want to overload this in a child theme then include a file
+			* called loop-archives.php and that will be used instead.
+			*/
+			get_template_part( 'loop', 'archive' );
+			?>
 
-			</div><!-- #content -->
-		</div><!-- .container -->
+        </div><!-- #content -->
+    </div><!-- .container -->
 
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php get_footer();
