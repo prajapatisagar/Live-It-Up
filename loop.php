@@ -78,7 +78,7 @@
 						'post_mime_type' => 'image',
 						'orderby'        => 'menu_order',
 						'order'          => 'ASC',
-						'numberposts'    => 99
+						'posts_per_page' => 10
 					) );
 					if ( $images ) :
 						$total_images = count( $images );
@@ -101,9 +101,11 @@
 					<?php the_excerpt(); ?>
 				<?php endif; ?>
             </div><!-- .entry-content -->
-
+			<?php
+			$get_term_link_url = get_term_link( 'gallery', 'gallery category slug' );
+			?>
             <div class="entry-utility">
-                <a href="<?php echo get_term_link( esc_url( 'gallery', 'gallery category slug' ), 'category' ); ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'live-it-up' ); ?>"><?php esc_html_e( 'More Galleries', 'live-it-up' ); ?></a>
+                <a href="<?php echo esc_url( $get_term_link_url ); ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'live-it-up' ); ?>"><?php esc_html_e( 'More Galleries', 'live-it-up' ); ?></a>
                 <span class="meta-sep">|</span>
                 <span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', 'live-it-up' ), esc_html__( '1 Comment', 'live-it-up' ), esc_html__( '% Comments', 'live-it-up' ) ); ?></span>
 				<?php edit_post_link( esc_html__( 'Edit', 'live-it-up' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
